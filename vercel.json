@@ -1,0 +1,5 @@
+{
+    "buildCommand": "cd PRG && npx next build",
+    "outputDirectory": "PRG/.next",
+    "installCommand": "pnpm install"
+}
