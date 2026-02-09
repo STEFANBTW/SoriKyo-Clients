@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a2e"/>
+      <stop offset="100%" style="stop-color:#4B0082"/>
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFFF"/>
+      <stop offset="100%" style="stop-color:#FF00FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="32" fill="url(#bgGrad)"/>
+  <path d="M108 40 L68 100 L88 100 L76 152 L124 88 L100 88 Z" fill="url(#boltGrad)" opacity="0.9"/>
+  <text x="96" y="180" font-family="Arial Black, sans-serif" font-size="16" fill="white" text-anchor="middle" opacity="0.7">BLAST</text>
+</svg>

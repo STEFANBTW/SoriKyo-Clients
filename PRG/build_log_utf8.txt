@@ -1,0 +1,51 @@
+﻿
+> blast-protocol@0.1.0 build C:\Users\saade\Documents\WebDev\SoriKyo Clients\PRG
+> next build
+
+   Ôû▓ Next.js 15.1.6
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ Ô£ô (serwist) Bundling the service worker script with the URL '/sw.js' and the scope '/'...
+ Ô£ô Compiled successfully
+   Linting and checking validity of types ...
+pnpm :  Ô¿» ESLint: Cannot find module 
+'C:\Users\saade\Documents\WebDev\SoriKyo 
+Clients\PRG\node_modules\eslint-config-next\core-web-vitals' imported 
+from C:\Users\saade\Documents\WebDev\SoriKyo 
+Clients\PRG\eslint.config.mjs Did you mean to import 
+"eslint-config-next/core-web-vitals.js"?
+At line:1 char:1
++ pnpm run build > build_log_full.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Ô¿» ESLint: Ca...web-vital 
+   s.js"?:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Failed to compile.
+
+.next/types/app/layout.ts:12:13
+Type error: Type 'OmitWithTag<typeof 
+import("C:/Users/saade/Documents/WebDev/SoriKyo 
+Clients/PRG/app/layout"), "default" | "metadata" | "viewport" | "config" 
+| "generateStaticParams" | "revalidate" | "dynamic" | ... 7 more ... | 
+"experimental_ppr", "">' does not satisfy the constraint '{ [x: string]: 
+never; }'.
+  Property 'geoMetadata' is incompatible with index signature.
+    Type '{ other: { 'geo.region': string; 'geo.placename': string; 
+'geo.position': string; ICBM: string; }; }' is not assignable to type 
+'never'.
+
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [90m// Check that the entry is a valid 
+entry[39m[0m
+[0m[31m[1m>[22m[39m[90m 12 |[39m 
+checkFields[33m<[39m[33mDiff[39m[33m<[39m{[0m
+[0m [90m    |[39m             [31m[1m^[22m[39m[0m
+[0m [90m 13 |[39m   [36mdefault[39m[33m:[39m 
+[33mFunction[39m[0m
+[0m [90m 14 |[39m   config[33m?[39m[33m:[39m {}[0m
+[0m [90m 15 |[39m   generateStaticParams[33m?[39m[33m:[39m 
+[33mFunction[39m[0m
+Static worker exited with code: 1 and signal: null
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.

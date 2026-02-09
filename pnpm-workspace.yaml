@@ -1,0 +1,4 @@
+# pnpm Workspace Configuration
+# All folders in this directory are treated as workspace packages
+packages:
+  - '*'  # Includes all immediate subdirectories with a package.json

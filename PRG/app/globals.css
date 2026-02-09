@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* Minimal Globals CSS for Testing */
+/* Royal Noir & Lavender Mist Design System */
+@theme {
+  --font-display: var(--font-playfair), "Playfair Display", serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+
+  --color-prg-primary: var(--prg-primary);
+  --color-prg-secondary: var(--prg-secondary);
+  --color-prg-accent: var(--prg-accent);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+}
+
+:root {
+  /* Light Mode: "Lavender Mist" */
+  --background: #F9FAFB;
+  /* Soft Pearl White / Light Lavender */
+  --foreground: #374151;
+  /* Deep Charcoal-Gray for Body Text */
+
+  --header-color: #2D0B5A;
+  /* Deep Royal Purple for Headers */
+  --muted-foreground: #6B7280;
+
+  --prg-primary: #2D0B5A;
+  /* Deep Royal Purple */
+  --prg-secondary: #86198F;
+  /* Rich Plum (Accessible Magenta) */
+  --prg-accent: #E5B80B;
+  /* Gold/Amber for slight accents */
+
+  --glass-bg: rgba(0, 0, 0, 0.05);
+  /* Black/5 for light mode */
+  --glass-border: rgba(45, 11, 90, 0.1);
+  --glass-blur: 12px;
+
+  --btn-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  /* Soft natural shadow */
+
+  /* Typography Defaults */
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Dark Mode: "Royal Noir" */
+.dark {
+  --background: #0A0510;
+  /* Deep Charcoal / Near-Black Purple */
+  --foreground: #9CA3AF;
+  /* Muted Lavender-Gray for Subtext (80% opacity feel) */
+
+  --header-color: #F3F4F6;
+  /* High-contrast Silver / Off-White */
+  --muted-foreground: #6B7280;
+
+  --prg-primary: #D12D92;
+  /* Vibrant Magenta for Buttons */
+  --prg-secondary: #A855F7;
+  /* Bright Purple */
+  --prg-accent: #E5B80B;
+
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  /* White/10 */
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: 12px;
+
+  --btn-shadow: 0 0 15px rgba(209, 45, 146, 0.5);
+  /* Purple Glow */
+}
+
+/* Base Styles & Typography */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  /* Generous line height */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--header-color);
+  letter-spacing: -0.02em;
+  /* Tight tracking */
+  line-height: 1.1;
+}
+
+/* H1 Size mapping: Tailwind handles responsive sizing, but ensure base aligns */
+@media (min-width: 768px) {
+
+  h1,
+  .h1 {
+    font-size: 3.5rem;
+  }
+
+  /* ~56px */
+}
+
+@media (min-width: 1024px) {
+
+  h1,
+  .h1 {
+    font-size: 4rem;
+  }
+
+  /* ~64px */
+}
+
+h2,
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--header-color);
+  font-size: 2rem;
+  /* 32px */
+  margin-bottom: 1.5rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--header-color);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Utilities */
+.glass-noir {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.btn-primary {
+  background-color: var(--prg-primary);
+  color: #ffffff;
+  /* Always white text on primary buttons */
+  box-shadow: var(--btn-shadow);
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Text Utilities matching the system */
+.text-header {
+  color: var(--header-color);
+}
+
+.text-body {
+  color: var(--foreground);
+}
+
+.text-accent {
+  color: var(--prg-secondary);
+}
+
+/* Accessibility & Reduced Motion Overrides (preserved) */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.high-contrast {
+  --background: #000000;
+  --foreground: #ffffff;
+  --header-color: #ffffff;
+  --prg-primary: #ffff00;
+  --prg-secondary: #00ffff;
+  --glass-bg: #000000;
+  --glass-border: #ffffff;
+}
+
+.gradient-text {
+  /* Purple (#A855F7) to Gold/Orange (#E5B80B) */
+  background: linear-gradient(135deg, #A855F7 0%, #E5B80B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}

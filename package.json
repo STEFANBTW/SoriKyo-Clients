@@ -1,0 +1,10 @@
+{
+    "name": "sorikyo-clients",
+    "private": true,
+    "scripts": {
+        "dev": "pnpm -r dev",
+        "build": "pnpm -r build",
+        "lint": "pnpm -r lint"
+    },
+    "packageManager": "pnpm@9.15.4"
+}
