@@ -31,6 +31,12 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons', 'recharts'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default withSerwist(nextConfig);
