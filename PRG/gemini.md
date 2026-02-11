@@ -2,11 +2,11 @@
 > **The Source of Truth for the BLAST Market Dominator Project**
 
 ## 1. PROJECT IDENTITY
-*   **Name:** Serenity Spa
-*   **Type:** Tier 3 "Market Dominator" Web App
+
+
 *   **Stack:** Next.js 15.1.6, React 19, React Three Fiber, Supabase (Custom CMS).
 *   **CMS Directive:** Discard Sanity.io. Build a Custom "Content Lake" using Supabase JSONB/Tables.
-*   **Brand Essence:** Luxury Wellness, "Emerald Essence" theme.
+
 *   **Status:** 🏗️ PHASE 4: EXECUTION (Expansion)
 
 ## 2. CURRENT PHASE
@@ -31,20 +31,7 @@
 ### 4.1. Global Config (Input)
 ```json
 {
-  "brand": {
-    "name": "Serenity Spa",
-    "acronym": "SS",
-    "palette": {
-      "primary": "#10B981", // Emerald Green
-      "secondary": "#F5F5F5", // Off-white/Cream
-      "accent": "#D4AF37", // Gold
-      "foundation": "#311B92" // Deep Indigo (Retained from PRG)
-    },
-    "typography": {
-      "display": "Plus Jakarta Sans",
-      "elegant": "Playfair Display"
-    }
-  },
+
   "features": {
     "agenticReceptionist": true,
     "spatialUI": true,
@@ -62,5 +49,19 @@
     *   *Examples:* `{'name': 'Kinetic Massage', 'category': 'body-work'}`, `{'name': 'Emerald Facial', 'category': 'skincare'}`
 
 
-## 5. MAINTENANCE LOG
+
+## 6. PROTOCOLS
+### 6.1. `deepFind` (Enhanced Retrieval & Documentation)
+*   **Trigger Keyword:** `deepFind`
+*   **Protocol:**
+    1.  **Identify:** Locate all files, lines, and blocks of code related to the request (e.g., styles, logic, parameters).
+    2.  **Documentation:** Insert or identify persistent `/* DESIGNER CONTROL */` or `// DESIGNER CONTROL` comments in the source code.
+    3.  **Explain:** Within those comments, clarify the parameter's effect and providing guidance on how to tweak it.
+    4.  **Display:** Provide a summary in the chat with clickable file paths, line numbers, and snippets.
+    5.  **Editor Access:** Use the `run_command` tool to open all referenced files in the VS Code editor using the `code -r [file]` command.
+    6.  **Context:** Ensure the user knows which lines to focus on based on the generated comments.
+
+## 7. MAINTENANCE LOG
+*   [2026-02-10] Added `deepFind` protocol for enhanced code retrieval and designer-friendly documentation. Integrated VS Code `code -r` command into the protocol.
 *   [DATE] System Initialized by BLAST AI.
+

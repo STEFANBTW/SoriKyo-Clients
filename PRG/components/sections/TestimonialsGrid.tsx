@@ -20,9 +20,9 @@ const TESTIMONIALS: Testimonial[] = [
         name: "Alex Thompson",
         role: "Hair Artistry Studio Client",
         quote: "Marcus transformed my hair beyond my wildest dreams. The color is absolutely stunning and the cut is perfect. I've never felt more confident!",
-        avatar: "https://img.rocket.new/generatedImages/rocket_gen_img_17fa90d5f-1763296744951.png",
-        beforeImage: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop", // Placeholder "Before"
-        afterImage: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=800&auto=format&fit=crop",   // Placeholder "After"
+        avatar: "/images/hair1.jpg",
+        beforeImage: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop", // Maintain Unsplash
+        afterImage: "/images/Gemini_Generated_Image_4il1iw4il1iw4il1.png",
         service: "Creative Color & Cut"
     },
     {
@@ -30,9 +30,9 @@ const TESTIMONIALS: Testimonial[] = [
         name: "Jordan Lee",
         role: "Barbing Excellence Client",
         quote: "Sophia's attention to detail is incredible. Best fade I've ever had. The atmosphere is welcoming and professional. Highly recommend!",
-        avatar: "https://img.rocket.new/generatedImages/rocket_gen_img_17fa90d5f-1763296744951.png", // Reusing for placeholder
+        avatar: "/images/hair2.jpg",
         beforeImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-        afterImage: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+        afterImage: "/images/Gemini_Generated_Image_e9dqkfe9dqkfe9dq.png",
         service: "Precision Fade"
     },
     {
@@ -40,9 +40,9 @@ const TESTIMONIALS: Testimonial[] = [
         name: "Sam Rivera",
         role: "Nail Studio Luxury Client",
         quote: "Jordan's nail artistry is phenomenal! The designs are intricate and beautiful. The spa experience was so relaxing. I'm a client for life!",
-        avatar: "https://img.rocket.new/generatedImages/rocket_gen_img_1271e6ec3-1768554781528.png",
+        avatar: "/images/hair3.jpg",
         beforeImage: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=800&auto=format&fit=crop",
-        afterImage: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?q=80&w=800&auto=format&fit=crop",
+        afterImage: "/images/AIEnhancer_image.png",
         service: "Luxury Nail Art"
     }
 ];
@@ -55,13 +55,13 @@ export const TestimonialsGrid = () => {
     };
 
     return (
-        <section id="testimonials" className="py-24 bg-prg-primary/5 relative overflow-hidden">
+        <section id="testimonials" className="py-24 bg-prg-primary/5 relative overflow-hidden transition-colors duration-500 .dark:bg-[#0A0510]">
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-prg-primary/5 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 space-y-4">
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground .dark:text-white">
                         Client Love Stories
                     </h2>
                     <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -82,7 +82,7 @@ export const TestimonialsGrid = () => {
                                     />
                                 </div>
                                 <div>
-                                    <h4 className="font-serif font-semibold text-lg text-foreground">{testimonial.name}</h4>
+                                    <h4 className="font-serif font-semibold text-lg text-foreground .dark:text-white">{testimonial.name}</h4>
                                     <div className="flex gap-1 text-prg-accent">
                                         {[...Array(5)].map((_, i) => (
                                             <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">

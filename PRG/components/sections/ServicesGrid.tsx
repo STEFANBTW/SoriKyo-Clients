@@ -48,18 +48,18 @@ const SERVICES = [
 
 export const ServicesGrid = () => {
     return (
-        <section id="services" className="w-full py-32 px-6 max-w-7xl mx-auto space-y-16">
+        <section id="services" className="w-full py-32 px-6 max-w-7xl mx-auto space-y-16 transition-colors duration-500 .dark:bg-[#0A0510]">
             <div className="flex flex-col md:flex-row justify-between items-end gap-8">
                 <div className="space-y-4">
-                    <span className="text-prg-secondary dark:text-prg-secondary text-xs font-bold tracking-[0.3em] uppercase">Our Expertise</span>
-                    <h2 className="text-4xl md:text-5xl font-serif text-foreground dark:text-white">Royal Treatment Awaits</h2>
-                    <p className="text-text-secondary dark:text-gray-300 max-w-md font-light leading-relaxed">
+                    <span className="text-prg-secondary .dark:text-prg-secondary text-xs font-bold tracking-[0.3em] uppercase">Our Expertise</span>
+                    <h2 className="text-4xl md:text-5xl font-serif text-foreground .dark:text-white">Royal Treatment Awaits</h2>
+                    <p className="text-text-secondary .dark:text-gray-300 max-w-md font-light leading-relaxed">
                         From precision haircuts to transformative microblading, experience beauty services fit for royalty.
                     </p>
                 </div>
                 <Link
                     href="/services"
-                    className="text-nowrap text-xs font-bold tracking-widest text-prg-secondary dark:text-prg-secondary uppercase border-b border-prg-secondary/30 pb-2 hover:border-prg-secondary transition-colors"
+                    className="text-nowrap text-xs font-bold tracking-widest text-prg-secondary .dark:text-prg-secondary uppercase border-b border-prg-secondary/30 pb-2 hover:border-prg-secondary transition-colors"
                 >
                     View All Services
                 </Link>
@@ -69,7 +69,7 @@ export const ServicesGrid = () => {
                 {SERVICES.map((service) => (
                     <div
                         key={service.id}
-                        className={`glass-noir rounded-2xl p-8 space-y-6 group hover:-translate-y-2 transition-all duration-500 cursor-pointer border w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] ${service.featured ? 'border-prg-secondary/30' : 'border-transparent'}`}
+                        className={`glass-noir rounded-2xl p-8 space-y-6 group hover:-translate-y-2 transition-all duration-500 cursor-pointer border .dark:bg-gradient-to-br .dark:from-white/[0.05] .dark:to-transparent w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] ${service.featured ? 'border-prg-secondary/30 .dark:border-prg-secondary/20' : 'border-transparent .dark:border-white/5'}`}
                     >
                         <div className="flex justify-between items-center">
                             <span className="text-3xl">{service.icon}</span>
@@ -79,7 +79,7 @@ export const ServicesGrid = () => {
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="text-xl font-serif text-foreground group-hover:text-prg-secondary transition-colors">
+                            <h3 className="text-xl font-serif text-foreground .dark:text-white group-hover:text-prg-secondary transition-colors">
                                 {service.name}
                             </h3>
                             <p className="text-sm font-light text-text-secondary leading-relaxed">

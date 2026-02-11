@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 export const MasterArtists = () => {
     return (
-        <section id="artists" className="py-24 bg-transparent relative overflow-hidden">
+        <section id="artists" className="py-24 bg-transparent relative overflow-hidden transition-colors duration-500 .dark:bg-[#0D0816]">
             {/* Decorative Elements */}
             <div className="absolute -left-20 top-40 w-64 h-64 bg-prg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
             <div className="absolute -right-20 bottom-40 w-64 h-64 bg-prg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 space-y-4">
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground .dark:text-white">
                         Meet Our Master Artists
                     </h2>
                     <p className="font-sans text-lg text-foreground/80 font-medium max-w-2xl mx-auto">
@@ -25,7 +25,7 @@ export const MasterArtists = () => {
                     <div className="text-center group glass-noir p-8 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-prg-primary/20">
                         <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-prg-primary/10 group-hover:border-prg-primary/40 transition-all duration-300 shadow-xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1e715e3e1-1763300331765.png"
+                                src="/images/hair1.jpg"
                                 alt="Portrait of Marcus Chen, senior hair stylist"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
@@ -36,7 +36,7 @@ export const MasterArtists = () => {
                                 </span>
                             </div>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold text-foreground mb-2">Marcus Chen</h3>
+                        <h3 className="font-serif text-2xl font-semibold text-foreground .dark:text-white mb-2">Marcus Chen</h3>
                         <p className="font-sans text-prg-secondary font-medium uppercase tracking-wider text-xs mb-3">Senior Stylist & Colorist</p>
                         <p className="text-sm text-muted-foreground mb-4 max-w-xs mx-auto">
                             12+ years of experience in creative coloring and precision cutting
@@ -51,7 +51,7 @@ export const MasterArtists = () => {
                     <div className="text-center group glass-noir p-8 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-prg-secondary/20">
                         <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-prg-secondary/10 group-hover:border-prg-secondary/40 transition-all duration-300 shadow-xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1220ca655-1763300331937.png"
+                                src="/images/hair2.jpg"
                                 alt="Portrait of Sophia Rodriguez, master barber"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
@@ -62,7 +62,7 @@ export const MasterArtists = () => {
                                 </span>
                             </div>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold text-foreground mb-2">Sophia Rodriguez</h3>
+                        <h3 className="font-serif text-2xl font-semibold text-foreground .dark:text-white mb-2">Sophia Rodriguez</h3>
                         <p className="font-sans text-prg-secondary font-medium uppercase tracking-wider text-xs mb-3">Master Barber</p>
                         <p className="text-sm text-muted-foreground mb-4 max-w-xs mx-auto">
                             Award-winning barber specializing in classic and contemporary cuts
@@ -77,7 +77,7 @@ export const MasterArtists = () => {
                     <div className="text-center group glass-noir p-8 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-prg-accent/20">
                         <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-prg-accent/10 group-hover:border-prg-accent/40 transition-all duration-300 shadow-xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1710d3222-1763298672152.png"
+                                src="/images/hair3.jpg"
                                 alt="Portrait of Jordan Kim, nail artist"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
@@ -88,7 +88,7 @@ export const MasterArtists = () => {
                                 </span>
                             </div>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold text-foreground mb-2">Jordan Kim</h3>
+                        <h3 className="font-serif text-2xl font-semibold text-foreground .dark:text-white mb-2">Jordan Kim</h3>
                         <p className="font-sans text-prg-secondary font-medium uppercase tracking-wider text-xs mb-3">Nail Artist & Therapist</p>
                         <p className="text-sm text-muted-foreground mb-4 max-w-xs mx-auto">
                             Certified nail technician with expertise in artistic designs and wellness
@@ -101,7 +101,7 @@ export const MasterArtists = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <Link href="/about" className="btn-secondary inline-block text-prg-secondary hover:text-white dark:text-prg-secondary dark:hover:text-white border-prg-secondary hover:bg-prg-secondary transition-colors">Meet Our Full Team</Link>
+                    <Link href="/about" className="btn-secondary inline-block text-prg-secondary hover:text-white .dark:text-prg-secondary .dark:hover:text-white border-prg-secondary hover:bg-prg-secondary transition-colors">Meet Our Full Team</Link>
                 </div>
             </div>
         </section>

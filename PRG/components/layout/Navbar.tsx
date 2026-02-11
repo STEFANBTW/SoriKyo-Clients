@@ -19,13 +19,18 @@ export const Navbar = () => {
     }, []);
 
     // Creative hover effect: Gradient text clip on hover + scale
-    const linkClass = "relative text-sm font-bold tracking-widest uppercase text-prg-primary dark:text-white/90 transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-prg-secondary hover:to-prg-accent hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-prg-secondary after:to-prg-accent after:transition-all after:duration-300 hover:after:w-full";
+    {/* DESIGNER CONTROL: Nav Link Base Colors
+       - text-prg-primary: Light Mode color (Deep Royal Purple #2D0B5A).
+       - .dark:text-white/90: Dark Mode color (Muted White).
+       - transition-all: Smoothly blends color changes when switching themes.
+       Effect: These classes control the text color of "Home", "Gallery", "Services", etc. before hover. */}
+    const linkClass = "relative text-sm font-bold tracking-widest uppercase text-prg-primary .dark:text-white/90 transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-prg-secondary hover:to-prg-accent hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-prg-secondary after:to-prg-accent after:transition-all after:duration-300 hover:after:w-full";
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4">
             <nav
-                className={`max-w-5xl mx-auto transition-all duration-300 rounded-full px-6 py-3 flex items-center justify-between border ${scrolled
-                    ? 'glass-noir border-border shadow-lg'
+                className={`max-w-5xl mx-auto transition-all duration-300 rounded-full px-6 py-3 flex items-center justify-between border backdrop-blur-md ${scrolled
+                    ? 'glass-noir border-border shadow-lg bg-black/60 .dark:bg-black/60'
                     : 'bg-transparent border-transparent'
                     }`}
             >
@@ -47,20 +52,25 @@ export const Navbar = () => {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
                     <Link href="/" className={linkClass}>Home</Link>
+                    <Link href="/gallery" className={linkClass}>Gallery</Link>
 
                     {/* Services Dropdown */}
                     <div className="relative group">
                         <Link href="/services" className={`flex items-center gap-1 py-4 ${linkClass}`}>
                             Services
-                            <svg className="w-3 h-3 text-foreground/80 dark:text-white group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 text-foreground/80 .dark:text-white group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </Link>
                         {/* Dropdown Content */}
                         <div className="absolute left-0 top-[calc(100%-10px)] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 w-48 z-50">
-                            <div className="glass-noir border border-prg-secondary/20 rounded-xl overflow-hidden shadow-xl flex flex-col p-2">
+                            <div className="bg-background .dark:glass-noir border border-prg-secondary/20 rounded-xl overflow-hidden shadow-xl flex flex-col p-2 backdrop-blur-md">
                                 {['Hair', 'Aesthetics', 'Nails', 'Spa', 'Academy'].map((item) => (
-                                    <Link key={item} href={`/${item.toLowerCase()}`} className="px-4 py-3 text-sm tracking-widest uppercase text-muted-foreground hover:bg-prg-secondary/10 hover:text-prg-secondary transition-colors text-left rounded-lg">
+                                    <Link
+                                        key={item}
+                                        href={`/${item.toLowerCase()}`}
+                                        className="px-4 py-3 text-sm tracking-widest uppercase text-header-color .dark:text-white/70 hover:bg-gradient-to-r hover:from-prg-secondary hover:to-prg-accent hover:text-white transition-all duration-300 text-left rounded-lg"
+                                    >
                                         {item}
                                     </Link>
                                 ))}
@@ -68,34 +78,30 @@ export const Navbar = () => {
                         </div>
                     </div>
 
-                    <Link href="/gallery" className={linkClass}>
-                        Gallery
-                    </Link>
-
-                    <Link href="/contact" className={linkClass}>
-                        Contact
-                    </Link>
+                    <Link href="#booking" className={linkClass}>Bookings</Link>
+                    <Link href="/#about" className={linkClass}>About</Link>
                 </div>
 
                 {/* Actions */}
                 <div className="flex items-center gap-4">
-                    {/* Book Now Button - Pill Shape */}
-                    <Link
-                        href="#booking-wizard-trigger"
-                        className="hidden sm:flex bg-prg-primary hover:bg-prg-secondary text-white text-xs font-bold tracking-widest uppercase px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(209,45,146,0.5)] hover:scale-105 active:scale-95"
-                    >
-                        Book Now
-                    </Link>
-
-                    {/* AI Assistant Button - Circular with Sine Wave */}
+                    {/* User Login Icon */}
                     <button
-                        onClick={() => useUIStore.getState().openWidget('gemini')}
-                        className="w-12 h-12 rounded-full bg-prg-primary hover:bg-prg-secondary text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(209,45,146,0.5)] hover:rotate-12 group"
-                        aria-label="Ask AI Assistant"
+                        className="w-10 h-10 rounded-full bg-transparent hover:bg-white/10 flex items-center justify-center transition-colors group text-foreground"
+                        aria-label="User Login"
                     >
-                        {/* Sinusoidal Wave Icon */}
-                        <svg className="w-6 h-6 group-hover:animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M2 12c.6 0 1.2-.4 1.6-.8l.8-1.6c.8-1.6 2.4-1.6 3.2 0l.8 1.6c.4.4 1 .8 1.6.8s1.2-.4 1.6-.8l.8-1.6c.8-1.6 2.4-1.6 3.2 0l.8 1.6c.4.4 1 .8 1.6.8s1.2-.4 1.6-.8l.8-1.6c.8-1.6 2.4-1.6 3.2 0l.8 1.6c.4.4 1 .8 1.6.8" />
+                        <svg className="w-5 h-5 group-hover:text-prg-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </button>
+
+                    {/* Neuro Inclusivity Button - Brain Icon */}
+                    <button
+                        onClick={() => useUIStore.getState().toggleWidget('sensory')}
+                        className="w-10 h-10 rounded-full bg-prg-primary/10 hover:bg-prg-primary/20 flex items-center justify-center transition-colors group text-foreground border border-prg-primary/20"
+                        aria-label="Neuro Inclusivity Settings"
+                    >
+                        <svg className="w-5 h-5 text-prg-secondary group-hover:text-prg-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </button>
 
@@ -115,8 +121,9 @@ export const Navbar = () => {
                 </div>
 
                 {mobileOpen && (
-                    <div className="absolute top-full left-4 right-4 mt-2 glass-noir rounded-2xl p-6 flex flex-col gap-4 md:hidden border border-white/10 shadow-2xl z-50">
+                    <div className="absolute top-full left-4 right-4 mt-2 glass-noir rounded-2xl p-6 flex flex-col gap-4 md:hidden border border-white/10 shadow-2xl z-50 backdrop-blur-md">
                         <Link href="/" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">Home</Link>
+                        <Link href="/gallery" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">Gallery</Link>
                         <div className="space-y-2">
                             <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary mb-2">Services</Link>
                             <div className="pl-4 border-l border-white/10 space-y-2">
@@ -125,9 +132,8 @@ export const Navbar = () => {
                                 ))}
                             </div>
                         </div>
-                        <Link href="/gallery" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">Gallery</Link>
-                        <Link href="/contact" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">Contact</Link>
-                        <Link href="#booking-wizard-trigger" className="btn-primary w-full text-center text-xs tracking-widest uppercase mt-2">Book Now</Link>
+                        <Link href="#booking" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">Bookings</Link>
+                        <Link href="/#about" onClick={() => setMobileOpen(false)} className="text-sm tracking-widest uppercase text-foreground hover:text-prg-secondary">About</Link>
                     </div>
                 )}
             </nav>

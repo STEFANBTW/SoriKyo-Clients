@@ -1,16 +1,19 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { SensoryDashboard } from '@/components/accessibility/SensoryDashboard';
 import { AccessibilityProvider } from '@/components/accessibility/AccessibilityProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { GeminiChatWrapper } from '@/components/ai/GeminiChatWrapper';
 import { WhatsAppConcierge } from '@/components/features/WhatsAppConcierge';
+import { UnifiedChatButton } from '@/components/features/UnifiedChatButton';
 import { AnalyticsProvider } from "@/components/providers/AnalyticsProvider";
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
+// import { SmoothScroll } from '@/components/ui/SmoothScroll';
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
   title: 'Purple Rain Galore | Luxury Unisex Salon & Spa in Jos',
   description: 'Experience premium beauty services at Purple Rain Galore. Hair, nails, spa, and beauty academy in the heart of Jos, Nigeria.',
   applicationName: 'Purple Rain Galore',
-  authors: [{ name: 'Purple Rain Galore', url: 'https://purpleraiingalore.com' }],
+  authors: [{ name: 'Purple Rain Galore', url: 'https://serenityspa.com' }],
   keywords: ['salon in jos', 'spa in jos', 'beauty academy jos', 'hair salon', 'nails jos', 'purple rain galore'],
   creator: 'SoriKyo Systems',
   publisher: 'Purple Rain Galore',
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#2D0B5A',
+  themeColor: '#10B981',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -60,9 +63,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BeautySalon',
   name: 'Purple Rain Galore',
-  image: 'https://purpleraiingalore.com/images/og-image.jpg',
-  '@id': 'https://purpleraiingalore.com',
-  url: 'https://purpleraiingalore.com',
+  image: 'https://serenityspa.com/images/og-image.jpg',
+  '@id': 'https://serenityspa.com',
+  url: 'https://serenityspa.com',
   telephone: '+2348000000000',
   address: {
     '@type': 'PostalAddress',
@@ -104,13 +107,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${playfair.variable} ${inter.variable} antialiased bg-background text-foreground transition-colors duration-300`}>
+      <body
+        className={`${playfair.variable} ${jakarta.variable} antialiased bg-background text-foreground transition-colors duration-300`}
+        suppressHydrationWarning
+      >
         <AccessibilityProvider>
+          {/* <SmoothScroll /> */}
+          <ThemeToggle />
           <Navbar />
           {children}
           <SensoryDashboard />
           <GeminiChatWrapper />
           <WhatsAppConcierge />
+          <UnifiedChatButton />
           <AnalyticsProvider />
         </AccessibilityProvider>
       </body>

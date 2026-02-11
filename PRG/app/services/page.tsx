@@ -1,24 +1,49 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { ServicesHero } from '@/components/services/ServicesHero';
-import { ServiceSection } from '@/components/services/ServiceSection';
+import { ServiceSectionScroll } from '@/components/services/ServiceSectionScroll';
 import { TransformationGallery } from '@/components/services/TransformationGallery';
 import { NailArtShowcase } from '@/components/services/NailArtShowcase';
 import { ServicesCTA } from '@/components/services/ServicesCTA';
 import { Footer } from '@/components/layout/Footer';
 
 export default function ServicesPage() {
+    useEffect(() => {
+        // Catchphrase reveal (Global GSAP already registered ScrollTrigger)
+        gsap.from(".catchphrase", {
+            scrollTrigger: {
+                trigger: ".catchphrase-container",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+            },
+            opacity: 0,
+            y: 100,
+            duration: 1
+        });
+    }, []);
+
     return (
         <main className="bg-background min-h-screen">
+            // <SmoothScroll />
             <ServicesHero />
+            <div className="catchphrase-container" style={{ height: '100vh', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start', padding: '0 0 5vh 5vw' }}>
+                <div className="catchphrase text-white text-4xl md:text-6xl font-serif w-1/2">
+                    <p>Our designs are the best. Are you ready for an amazing experience?</p>
+                </div>
+            </div>
 
-            <ServiceSection
+            <ServiceSectionScroll
                 id="hair"
                 title="Hair Artistry"
                 description="Experience the art of precision barbering and creative styling. Where classic techniques meet contemporary flair."
                 icon={
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0 0L3 3m5.758 5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
                     </svg>
                 }
@@ -39,7 +64,7 @@ export default function ServicesPage() {
                         title: "Styling & Texture",
                         description: "Blowouts, silk presses, and texture services to enhance your hair's natural beauty.",
                         price: "From $75",
-                        image: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=800&auto=format&fit=crop"
+                        image: "/images/hair1.jpg"
                     }
                 ]}
                 gallery={<TransformationGallery />}
@@ -51,13 +76,13 @@ export default function ServicesPage() {
                 }}
             />
 
-            <ServiceSection
+            <ServiceSectionScroll
                 id="aesthetics"
                 title="Aesthetics"
                 description="Reveal your radiance with our premium aesthetic treatments, from rejuvenating facials to professional makeup artistry."
                 bgClass="bg-prg-primary/5"
                 icon={
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                 }
@@ -89,12 +114,12 @@ export default function ServicesPage() {
                 }}
             />
 
-            <ServiceSection
+            <ServiceSectionScroll
                 id="nails"
                 title="Nail Studio"
                 description="Experience exquisite nail artistry and pampering treatments. Classic elegance meets bold creativity."
                 icon={
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
                 }
@@ -115,7 +140,7 @@ export default function ServicesPage() {
                         title: "Custom Nail Art",
                         description: "Intricate designs, crystals, and hand-painted art to express your personal style.",
                         price: "Add-on from $15",
-                        image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=800&auto=format&fit=crop"
+                        image: "/images/AIEnhancer_image.png"
                     }
                 ]}
                 gallery={<NailArtShowcase />}
@@ -127,13 +152,13 @@ export default function ServicesPage() {
                 }}
             />
 
-            <ServiceSection
+            <ServiceSectionScroll
                 id="spa"
                 title="Spa Sanctuary"
                 description="Indulge in rejuvenating treatments designed to restore health, shine, and vitality to your body and mind."
                 bgClass="bg-prg-primary/5"
                 icon={
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                 }
@@ -154,7 +179,7 @@ export default function ServicesPage() {
                         title: "Hair Spa",
                         description: "Deep conditioning and scalp treatments for hair health and relaxation.",
                         price: "From $65",
-                        image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop"
+                        image: "/images/hair2.jpg"
                     }
                 ]}
                 testimonial={{
@@ -165,12 +190,12 @@ export default function ServicesPage() {
                 }}
             />
 
-            <ServiceSection
+            <ServiceSectionScroll
                 id="academy"
                 title="Beauty Academy"
                 description="Start your journey in the beauty industry with expert-led training courses and certifications."
                 icon={
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                 }
@@ -191,7 +216,7 @@ export default function ServicesPage() {
                         title: "Nail Technology",
                         description: "Become a certified nail technician covering manicures, pedicures, and nail art.",
                         price: "Enroll Now",
-                        image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=800&auto=format&fit=crop"
+                        image: "/images/hair3.jpg"
                     }
                 ]}
                 testimonial={{

@@ -4,7 +4,11 @@ import React from 'react';
 
 export const TrustBadges = () => {
     return (
-        <section id="trust-badges" className="py-12 bg-prg-primary/5 border-y border-prg-primary/10">
+        <section id="trust-badges" className="py-12 bg-white/50 .dark:bg-black/20 border-y border-prg-primary/10 .dark:border-white/5">
+            {/* DESIGNER CONTROL: Trust Badges Section Style
+               - bg-prg-primary/5: Controls the light background tint.
+               - border-y: Adds top and bottom borders.
+               Effect: Separates the hero from the services with a subtle, royal-toned bar. */}
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
                     {/* Award Winning */}
@@ -52,6 +56,6 @@ export const TrustBadges = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };

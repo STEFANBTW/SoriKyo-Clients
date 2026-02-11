@@ -7,11 +7,14 @@ import { useAccessibilityStore } from '@/store/accessibility';
 import { Environment, Stars } from '@react-three/drei';
 
 // PRG Palette
+// DESIGNER CONTROL: PRG Theme Rain Colors
+// Effect: Changes the color of falling "Purple Rain" drops.
 const COLORS = {
     rainDark: "#A855F7", // Bright Purple for Dark Mode
     rainLight: "#4C1D95", // Deep Purple for Light Mode
     gust: "#E879F9",      // Pink/Magenta for Gusts
 };
+
 
 const count = 3000;
 
@@ -129,8 +132,11 @@ export default function Scene() {
                 <ambientLight intensity={0.5} />
                 <Stars radius={100} depth={50} count={reducedMotion ? 500 : 2000} factor={4} saturation={0} fade speed={reducedMotion ? 0.2 : 1} />
                 <Rain reducedMotion={reducedMotion} theme={theme} />
-                {/* Subtle fog for depth */}
+                {/* DESIGNER CONTROL: Depth Fog
+                    Adjust args 2nd and 3rd numbers (5, 30) for fog density.
+                    Effect: Creates distance blur in the 3D scene. */}
                 <fog attach="fog" args={[theme === 'dark' ? '#020617' : '#ffffff', 5, 30]} />
+
             </Canvas>
         </div>
     );

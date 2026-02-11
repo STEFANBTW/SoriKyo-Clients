@@ -34,10 +34,30 @@ const HairHero = () => (
                 {/* Decorative Circle */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-prg-secondary/20 to-prg-primary/20 rounded-full blur-3xl transform scale-90"></div>
                 <img
-                    src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1920"
                     alt="Luxury Hair Model"
                     className="relative w-full h-full object-cover rounded-t-[10rem] rounded-b-[2rem] shadow-2xl z-10 border border-white/10"
                 />
+            </div>
+        </div>
+        {/* Abstract Shapes */}
+        <div className="absolute top-1/2 left-0 w-64 h-64 bg-prg-primary/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-y-1/3 translate-x-1/3"></div>
+
+        {/* Floating Image Grid */}
+        <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 hidden md:block">
+            <div className="container mx-auto px-6">
+                <div className="grid grid-cols-5 gap-4">
+                    {[0, 1, 2, 3, 4].map((item) => (
+                        <div key={item} className="h-40 rounded-xl overflow-hidden border-2 border-white/20 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                            <img
+                                src={`https://images.pexels.com/photos/${3065170 + item}/pexels-photo-${3065170 + item}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                                alt={`Style ${item}`}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     </section>
@@ -58,11 +78,15 @@ const ExperienceSection = () => (
         </div>
         {/* Image Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 h-[400px]">
-            {['https://images.pexels.com/photos/3356170/pexels-photo-3356170.jpeg', 'https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg', 'https://images.pexels.com/photos/1987301/pexels-photo-1987301.jpeg', 'https://images.pexels.com/photos/2773551/pexels-photo-2773551.jpeg', 'https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg'].map((src, i) => (
-                <div key={i} className="relative h-full overflow-hidden group">
+            {[0, 1, 2, 3, 4].map((item) => (
+                <div key={item} className="relative h-full overflow-hidden group">
                     {/* Overlay */}
-                    <div className={`absolute inset-0 opacity-20 group-hover:opacity-0 transition-opacity duration-300 ${['bg-orange-500', 'bg-red-500', 'bg-yellow-500', 'bg-blue-500', 'bg-purple-500'][i]}`}></div>
-                    <img src={src} alt={`Style ${i}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className={`absolute inset-0 opacity-20 group-hover:opacity-0 transition-opacity duration-300 ${['bg-orange-500', 'bg-red-500', 'bg-yellow-500', 'bg-blue-500', 'bg-purple-500'][item]}`}></div>
+                    <img
+                        src={`https://images.pexels.com/photos/${3065170 + item}/pexels-photo-${3065170 + item}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                        alt={`Style ${item}`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                 </div>
             ))}
         </div>
@@ -79,7 +103,7 @@ const KnownForSection = () => (
         <div className="container mx-auto px-6 relative flex flex-col md:flex-row items-center justify-center gap-12">
             {/* Center Image */}
             <div className="relative w-80 h-80 rounded-full overflow-hidden border-8 border-background shadow-2xl z-10">
-                <img src="https://images.pexels.com/photos/3756985/pexels-photo-3756985.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Center" className="w-full h-full object-cover" />
+                <img src="https://images.pexels.com/photos/3065173/pexels-photo-3065173.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Center" className="w-full h-full object-cover" />
             </div>
 
             {/* Floating Items - Simplified Layout for Flex */}
@@ -130,7 +154,7 @@ const ChooseStyleSection = () => (
                     {[1, 2, 3, 4, 5, 6].map((item) => (
                         <div key={item} className="group cursor-pointer">
                             <div className="aspect-[3/4] overflow-hidden rounded-lg mb-4 bg-gray-900">
-                                <img src={`https://images.pexels.com/photos/${3065170 + item}/pexels-photo-${3065170 + item}.jpeg?auto=compress&cs=tinysrgb&w=600`} alt="Style" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                <img src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Style" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                             </div>
                             <h3 className="font-serif text-lg">Royal Silk Press</h3>
                             <p className="text-text-secondary text-sm">$120.00</p>
@@ -150,7 +174,7 @@ const ColorShadeSection = () => (
                 <div className="w-full lg:w-1/3">
                     <h2 className="text-5xl font-serif mb-8 leading-tight">Find Your<br />Perfect <span className="text-prg-secondary">Shade</span></h2>
                     <div className="rounded-t-full overflow-hidden h-[400px] w-[300px] mx-auto border-4 border-prg-secondary/20">
-                        <img src="https://images.pexels.com/photos/3356173/pexels-photo-3356173.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Back of hair" className="w-full h-full object-cover" />
+                        <img src="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Back of hair" className="w-full h-full object-cover" />
                     </div>
                 </div>
 

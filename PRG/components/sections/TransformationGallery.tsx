@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 export const TransformationGallery = () => {
     return (
-        <section id="gallery-preview" className="py-24 bg-transparent relative">
+        <section id="gallery-preview" className="py-24 bg-transparent relative transition-colors duration-500 .dark:bg-[#0D0816]">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-prg-secondary/5 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 space-y-4">
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground .dark:text-white">
                         Transformation Gallery
                     </h2>
                     <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -23,7 +23,7 @@ export const TransformationGallery = () => {
                     <Link href="/gallery" className="group cursor-pointer">
                         <div className="relative overflow-hidden rounded-xl h-96 border border-white/10 shadow-2xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1045e2fb9-1764765219540.png"
+                                src="/images/Gemini_Generated_Image_4il1iw4il1iw4il1.png"
                                 alt="Before and after hair transformation showing dramatic color change from dark to vibrant purple balayage"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 loading="lazy"
@@ -44,7 +44,7 @@ export const TransformationGallery = () => {
                     <Link href="/gallery" className="group cursor-pointer">
                         <div className="relative overflow-hidden rounded-xl h-96 border border-white/10 shadow-2xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_19b0a0058-1768333619997.png"
+                                src="/images/Gemini_Generated_Image_e9dqkfe9dqkfe9dq.png"
                                 alt="Professional fade haircut transformation showcasing precision barbering technique"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 loading="lazy"
@@ -65,7 +65,7 @@ export const TransformationGallery = () => {
                     <Link href="/gallery" className="group cursor-pointer">
                         <div className="relative overflow-hidden rounded-xl h-96 border border-white/10 shadow-2xl">
                             <img
-                                src="https://img.rocket.new/generatedImages/rocket_gen_img_1bf27d523-1768553402134.png"
+                                src="/images/AIEnhancer_image.png"
                                 alt="Luxury nail art transformation featuring intricate purple and gold design patterns"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 loading="lazy"

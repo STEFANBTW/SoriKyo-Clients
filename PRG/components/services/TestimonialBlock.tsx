@@ -17,7 +17,7 @@ export const TestimonialBlock: React.FC<TestimonialBlockProps> = ({
     image
 }) => {
     return (
-        <div className="card-elevated max-w-4xl mx-auto my-16 bg-white dark:bg-white/5 border border-prg-primary/10 p-8 rounded-2xl shadow-xl">
+        <div className="card-elevated max-w-4xl mx-auto my-16 bg-white .dark:bg-white/5 border border-prg-primary/10 p-8 rounded-2xl shadow-xl">
             <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="relative w-24 h-24 flex-shrink-0">
                     <Image
